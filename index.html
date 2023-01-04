@@ -1,0 +1,158 @@
+<a href="#Como-instalar-Python">Como instalar python?</a><br>
+<a href="#Editor-de-codigo">Editor de codigo</a><br>
+<a href="#Conceitos-basicos-de-python">Conceitos basicos de python</a><br>
+<a href="#Conceitos-intermediarios">Conceitos intermediários</a><br>
+<a href="#identacao">Identação</a><br>
+<div id="Como-instalar-Python"><h2>Como instalar Python</h2><br>Para instalar o python e começar a desenvolver nessa linguagem de programação, acesse: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a><br>
+Escolha a versão mais recente do Python (atualmente, a versão 3.10.0) e siga as instruções de instalação. É geralmente uma boa ideia aceitar as opções padrão durante a instalação.<br>
+
+<div id="Editor-de-codigo"><h2>Editor de codigo</h2><br>O melhor editor de codigos na minha opinião chama-se vscode (Visual Studio Code), ele serve para varias linguagems de programação e tem uma interface amigavel que não prejudica a visão quando analisa codigos por muito tempo.<br>
+para instalar, acesse: <a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a>, escolha o download de acordo com seu sistema!<br>
+
+<div id="Criando-meu-primeiro-codigo"><h2>Criando meu primeiro codigo</h2></div><br>
+<div>Agora com o python e vscode instalado é possivel criar codigos em python e testalos, vamos com um exemplo basico:<br>
+na sua area de trabalho, crie uma pasta tutorial, depois abra o vscode, em "file" selecione "open folder" depois selecione area de trabalho e procure a pasta tutorial, ao passar o mouse em TUTORIAL aparece a opção de um arquivo com um sinal de + ele diz "New File", clique nele e digite o nome main.py e tecle enter, agora em main.py digite:<br>
+print('meu primeiro script python')<br>
+em "File" selecione a opção salvar, agora selecione "Terminal" depois "New Terminal" e digite:<br>
+python main.py    e tecle enter, veja o video abaixo:<br>
+
+<a href="https://archive.org/details/brpythontutorial01" target="_blank">Video Exemplo</a><br>
+
+
+<div id="Conceitos-basicos-de-python"><h2>Conceitos basicos de python</h2><br>Python é uma linguagem de programação de alto nível e interpretada. Isso significa que é uma linguagem de programação fácil de ler e escrever, e que o código Python pode ser executado diretamente sem precisar ser compilado.</div><br>
+<div>Alguns conceitos básicos de Python incluem:<br>
+<strong>Variáveis:</strong></font> um espaço na memória do seu computador onde você pode armazenar um valor. Por exemplo:<br><br>
+
+x = 5<br>
+y = "Oi, mundo!"<br><br>
+
+<strong>Operadores:</strong></font> símbolos que realizam operações matemáticas ou lógicas em seu código. Alguns exemplos comuns são + (adição), - (subtração), * (multiplicação), / (divisão) e == (igualdade).<br>
+<strong>Listas:</strong></font> Listas são sequências ordenadas de valores que podem ser de qualquer tipo. Elas são criadas usando colchetes [] e os valores são separados por vírgulas. Por exemplo:<br><br>
+
+minha_lista = [1, 2, 3, 4]<br><br>
+Você pode acessar os elementos de uma lista usando seus índices (a posição do elemento na lista), começando por 0. Por exemplo:<br><br>
+
+minha_lista = [1, 2, 3, 4]<br>
+print(minha_lista[0])  # imprime 1<br>
+print(minha_lista[2])  # imprime 3<br><br>
+
+Você também pode usar os operadores de slice para obter sublistas de uma lista. esses operadores funcionam assim:<br><br>
+
+lista[indice_inicio:indice_final]  exemplo:<br><br>
+minha_lista = [1, 2, 3, 4, 5]<br>
+print(minha_lista[1:3])  # imprime [2, 3]<br>
+print(minha_lista[:2])   # imprime [1, 2]<br>
+print(minha_lista[2:])   # imprime [3, 4, 5]<br><br>
+
+<strong>Tuplas:</strong></font> Tuplas são muito semelhantes às listas, mas são imutáveis (ou seja, uma vez criadas, não podem ser modificadas). Elas são criadas usando parênteses () e os valores são separados por vírgulas. Por exemplo:<br>
+minha_tupla = (1, 2, 3, 4)<br>
+Você pode acessar os elementos de uma tupla da mesma maneira que uma lista, usando seus índices e slices.<br><br>
+<strong>Dicionários:</strong></font> os dicionários são estruturas de dados que armazenam pares chave-valor. As chaves são únicas em um dicionário e os valores podem ser de qualquer tipo. Os dicionários são criados usando chaves {} e os pares chave-valor são separados por vírgulas. Por exemplo:<br><br>
+meu_dicionario = {'nome': 'João', 'idade': 30}<br><br>
+Você pode acessar os valores em um dicionário usando suas chaves. Por exemplo:<br><br>
+print(meu_dicionario['nome'])  # imprime "João"<br>
+print(meu_dicionario['idade'])  # imprime 30<br><br>
+Usando get para retornar uma exceção:<br>
+as vezes pode ser nescessário colocar exceção ao acessar dicionario, pois usando colchete [] pra acessar o dicionario e o mesmo não existe será exibido um erro, <br>
+nesse caso pode ser últil colocar o get pra da uma exceção, exemplo:<br>
+meu_dicionario = {'nome': 'João', 'idade': 30}<br>
+print(meu_dicionario.get('profissao', 'Não existe a chave profissao')) # imprime "Não existe a chave profissao" pois não existe no dicionario<br><br>
+
+<strong>Strings:</strong></font> As strings em Python são sequências de caracteres que podem ser usadas para armazenar e manipular texto. Elas podem ser criadas usando aspas simples ou duplas:<br><br>
+string1 = 'Oi, mundo!'<br>
+string2 = "Oi, mundo!"<br>
+<br>
+Concatenando strings:<br>
+string1 = 'Oi, '<br>
+string2 = 'mundo!'<br>
+greeting = string1 + string2<br>
+print(greeting)  # imprime "Oi, mundo!"<br><br>
+Você também pode usar aspas triplas para criar strings multilinhas:<br><br>
+string3 = """Oi,<br>
+mundo!"""<br><br>
+Você também pode usar a função <strong>format()</strong> de strings para inserir valores de variáveis em uma string. Por exemplo:<br>
+name = 'João'<br>
+age = 30<br>
+string = "Meu nome é {} e tenho {} anos".format(name, age)<br>
+print(string)  # imprime "Meu nome é João e tenho 30 anos"<br>
+
+<div id="Conceitos-intermediarios"><h2>Conceitos intermediários</h2></div><br>
+<div>
+apartir de agora vai ficar mais interessante a linguagem<br><br>
+<strong>Concatenando listas:</strong><br><br>
+Para concatenar (juntar) duas listas em Python, você pode usar o operador <strong>+</strong>. Por exemplo:<br><br>
+lista1 = [1, 2, 3]<br>
+lista2 = [4, 5, 6]<br>
+lista_concatenada = lista1 + lista2<br>
+
+print(lista_concatenada)  # imprime [1, 2, 3, 4, 5, 6]<br>
+Você também pode usar o método <strong>extend()</strong> de uma lista para adicionar os elementos de outra lista a ela. Por exemplo:<br><br>
+lista1 = [1, 2, 3]<br>
+lista2 = [4, 5, 6]<br>
+lista1.extend(lista2)<br>
+
+print(lista1)  # imprime [1, 2, 3, 4, 5, 6]<br><br>
+<strong>Concatenando tuplas:</strong><br><br>
+é possível concatenar tuplas em Python da mesma maneira que listas, usando o operador <strong>+</strong> Por exemplo:<br><br>
+tupla1 = (1, 2, 3)<br>
+tupla2 = (4, 5, 6)<br>
+tupla_concatenada = tupla1 + tupla2<br>
+
+print(tupla_concatenada)  # imprime (1, 2, 3, 4, 5, 6)<br><br>
+
+tupla1 = (1, 2, 3)<br>
+tupla2 = (4, 5, 6)<br>
+tupla1 += tupla2<br>
+
+print(tupla1)  # imprime (1, 2, 3, 4, 5, 6)<br><br>
+
+No entanto, é importante lembrar que as tuplas são imutáveis, o que significa que você não pode modificar os elementos de uma tupla diretamente. Em vez disso, você precisará criar uma nova tupla com os elementos desejados.<br><br>
+<strong>Laço de repetição 'for':</strong><br><br>
+O laço 'for' em Python é usado para iterar sobre um iterável, como uma lista ou uma string. Aqui está um exemplo de como usar o 'for' para percorrer uma lista:<br><br>
+numbers = [1, 2, 3, 4, 5]<br>
+for number in numbers:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(number)<br>
+Neste exemplo, a variável number tomará cada valor na lista numbers sucessivamente, e o código dentro do laço será executado para cada valor. O resultado seria a impressão de cada número na lista:<br><br>
+1<br>
+2<br>
+3<br>
+4<br>
+5<br><br>
+Você também pode usar o for para iterar sobre uma string, como neste exemplo:<br><br>
+word = "hello"<br>
+for letter in word:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(letter)<br>
+Isso imprimiria cada letra da palavra "hello" em uma linha separada:<br><br>
+h<br>
+e<br>
+l<br>
+l<br>
+o<br><br>
+
+Você também pode usar o <strong>for</strong> em combinação com a função <strong>range()</strong> para iterar um número específico de vezes. Por exemplo:<br>
+for i in range(5):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+Isso imprimiria os números de 0 a 4 (lembre-se que o Python começa a contar do 0, não do 1).<br><br>
+<strong>Descompactando tuplas:</strong><br>
+você pode descompactar uma tupla em python atribuindo variaveis a cada elemento da tupla<br><br>
+t = (1,2,3)<br>
+n1,n2,n3 = t<br>
+print(n1)<br>
+print(n2)<br>
+print(n3)<br><br>
+<strong>Trocando variaveis:</strong><br>
+pode ser interessante trocar valores de variaveis no python, exemplo:<br><br>
+variavel1 = 'João'<br>
+variavel2 = 'Pedro'<br>
+variavel3 = 'Rafael'<br>
+variavel4  = 'Suzana'<br>
+variavel1,variavel2 = variavel3,variavel4<br>
+nesse exemplo usamos apenas uma linha pra trocar as variaveis, a variavel1 será variavel3 e a variavel3 será variavel1, a variavel2 será variavel4 e a variavel4 será variavel2, nunca usamos varias linhas porque isso apenas referencia outra variavel e não troca de verdade a variavel<br><br>
+</div>
+<div id="identacao"><strong>Identação</strong><br><br>
+Dada uma função como 'for' por exemplo, a proxima linha tem q ser identada pois dara erro se deixar centralizada com a primeira linha, exemplo:<br>
+Neste exemplo, apertamos a tecla tab uma vez ou apertamos a tecla espaço quatro vezes até ficar identada e poder escrever o proximo codigo:<br>
+for letter in word:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(letter) # linha identada<br><br>
+no python trabalhamos com identação porque o interpretador do python precisa saber que a proxima linha decorre de uma função anterior, pois o python executa de cima para baixo o codigo.<br>
+</div>
