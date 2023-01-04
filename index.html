@@ -161,6 +161,112 @@ Dada uma função como 'for' por exemplo, a proxima linha tem q ser identada poi
 Neste exemplo, apertamos a tecla tab uma vez ou apertamos a tecla espaço quatro vezes até ficar identada e poder escrever o proximo codigo:<br>
 for letter in word:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;print(letter) # linha identada<br><br>
-no python trabalhamos com identação porque o interpretador do python precisa saber que a proxima linha decorre de uma função anterior, pois o python executa de cima para baixo o codigo.<br>
+no python trabalhamos com identação porque o interpretador do python precisa saber que a proxima linha decorre de uma função anterior, pois o python executa de cima para baixo o codigo.<br><br>
+</div>
+<div>
+<strong>Condições:</strong><br><br>
+x = 10<br>
+y = 20<br><br>
+if x < y:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("x é menor que y")<br><br>
+
+if x > y:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("x é maior que y")<br><br>
+
+if x <= y:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("x é menor ou igual a y")<br><br>
+
+if x >= y:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("x é maior ou igual a y")<br><br>
+
+if x == y:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("x é igual a y")<br><br>
+
+if x != y:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("x é diferente de y")<br>
+Neste exemplo, apenas a última comparação será verdadeira, então apenas a mensagem "x é diferente de y" será impressa.<br><br>
+
+Você também pode usar operadores lógicos, como <strong>and</strong>, <strong>or</strong> e <strong>not</strong>, para combinar múltiplas condições em uma única expressão. Por exemplo:<br><br>
+x = 10<br>
+y = 20<br><br>
+
+if x < y and x % 2 == 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("x é menor que y e é um número par")<br><br>
+
+if x < y or x % 2 == 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("x é menor que y ou é um número par")<br><br>
+
+if not (x < y):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("x não é menor que y")<br><br>
+
+<strong>startswith() e endswith()</strong><br><br>
+As funções <strong>startswith()</strong> e <strong>endswith()</strong> em Python são métodos de string que verificam se uma string começa ou termina, respectivamente, com uma determinada sequência de caracteres. Aqui está um exemplo de como usá-las:<br><br>
+
+word = "hello"<br>
+if word.startswith("h"):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("A string começa com 'h'")<br><br>
+
+if word.endswith("o"):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("A string termina com 'o'")<br>
+Isso imprimiria as duas mensagens, pois a string "hello" começa com "h" e termina com "o".<br<br>
+
+Você também pode passar uma tupla como argumento para esses métodos, para verificar se a string começa ou termina com qualquer uma das sequências de caracteres na tupla. Por exemplo:<br><br>
+word = "hello"<br>
+if word.startswith(("h", "he", "hel")):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("A string começa com 'h', 'he' ou 'hel'")<br><br>
+
+if word.endswith(("o", "lo", "llo")):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("A string termina com 'o', 'lo' ou 'llo'")<br>
+Esses métodos também suportam o argumento opcional start e end, que permitem especificar a posição na string a partir da qual a verificação deve começar ou terminar, respectivamente. Por exemplo:<br><br>
+word = "hello"<br>
+if word.startswith("e", 1, 3):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("A string começa com 'e' entre as posições 1 e 3")<br><br>
+
+if word.endswith("l", 2):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("A string termina com 'l' a partir da posição 2")<br><br>
+
+<strong>Pesquisando com string</strong><br><br>
+Sempre que quisermos encontrar algo usando condição usamos uma string ou uma variavel com string<br><br>
+texto = 'João está aprendendo python!'<br>
+variavel = 'João'<br>
+if variavel in texto:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print('João está no texto!')<br><br>
+Você pode usar string diretamente na condição:<br><br>
+texto = 'João está aprendendo python!'<br>
+if 'João' in texto:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print('João está no texto!')<br><br>
+<strong>Filtrando com string</strong><br><br>
+Sempre que quisermos filtrar informações usando condições usamos o operador lógico <strong>not</strong>, exemplo:<br><br>
+texto = 'João está aprendendo python!'<br>
+variavel = 'Pedro'<br>
+if not variavel in texto:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print('Pedro não está no texto!')<br><br>
+a mesma coisa vale pra string diretamente na condição:<br>
+texto = 'João está aprendendo python!'<br>
+if not 'Pedro' in texto:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print('Pedro não está no texto!')<br><br>
+
+
+
+</div>
+<div>
+<strong>Laço de repetição "while":</strong><br><br>
+O laço <strong>while</strong> em Python é usado para executar um bloco de código repetidamente enquanto uma determinada condição é verdadeira. Aqui está um exemplo de como usar o <strong>while</strong>:<br><br>
+i = 0<br>
+
+while i < 5:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i += 1<br>
+Neste exemplo, o laço <strong>while</strong> continuará executando enquanto i for menor que 5. O código dentro do laço imprime o valor de i e, em seguida, adiciona 1 a ele. Isso resultará na impressão dos números de 0 a 4.<br><br>
+Para parar um laço <strong>while</strong>, você pode usar a palavra-chave break. Isso sairá do laço imediatamente, independentemente da condição de parada ainda ser verdadeira ou não. Por exemplo:<br><br>
+i = 0<br>
+
+while True:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i += 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if i >= 5:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break<br><br>
+
+Neste exemplo, o laço <strong>while</strong> irá iterar cinco vezes, mas apenas os números ímpares serão impressos: 1, 3 e 5. Quando i é um número par, a instrução continue é atingida e o código restante no laço é pulado, fazendo com que o laço volte para o início da próxima iteração.<br><br>
 </div>
 </body>
