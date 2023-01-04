@@ -10,6 +10,8 @@
 <a href="#Conceitos-basicos-de-python">Conceitos basicos de python</a><br>
 <a href="#Conceitos-intermediarios">Conceitos intermediários</a><br>
 <a href="#identacao">Identação</a><br>
+<a href="#avancado">Conceitos avançados</a><br>
+<a href="#funcoesemetodos">Funções e métodos nativos do python</a><br>
 <div id="Como-instalar-Python"><h2>Como instalar Python</h2><br>Para instalar o python e começar a desenvolver nessa linguagem de programação, acesse: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a><br>
 Escolha a versão mais recente do Python (atualmente, a versão 3.10.0) e siga as instruções de instalação. É geralmente uma boa ideia aceitar as opções padrão durante a instalação.<br>
 
@@ -140,8 +142,8 @@ Você também pode usar o <strong>for</strong> em combinação com a função <s
 for i in range(5):<br>
 &nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
 Isso imprimiria os números de 0 a 4 (lembre-se que o Python começa a contar do 0, não do 1).<br><br>
-<strong>Descompactando tuplas:</strong><br>
-você pode descompactar uma tupla em python atribuindo variaveis a cada elemento da tupla<br><br>
+<strong>Desempacotando tuplas:</strong><br>
+você pode desempacotar uma tupla em python atribuindo variaveis a cada elemento da tupla<br><br>
 t = (1,2,3)<br>
 n1,n2,n3 = t<br>
 print(n1)<br>
@@ -269,4 +271,221 @@ while True:<br>
 
 Neste exemplo, o laço <strong>while</strong> irá iterar cinco vezes, mas apenas os números ímpares serão impressos: 1, 3 e 5. Quando i é um número par, a instrução continue é atingida e o código restante no laço é pulado, fazendo com que o laço volte para o início da próxima iteração.<br><br>
 </div>
+<div id="avancado"><h2>Conceitos Avançados</h2></div><br>
+<div>
+<strong>Funções:</strong><br><br>
+Em Python, uma função é um bloco de código que pode ser executado repetidamente em diferentes partes do seu programa. Você pode criar uma função para realizar uma tarefa específica ou para calcular um resultado e retorná-lo para ser usado em outro lugar.<br>
+Por exemplo, você pode criar uma função para calcular o fatorial de um número, ou para verificar se um número é primo. Depois de criar a função, você pode chamá-la quantas vezes quiser e passar os argumentos necessários como entrada.<br><br>
+
+A sintaxe para definir uma função em Python é:<br><br>
+def nome_da_funcao(parametros):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# código da função<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return resultado<br><br>
+
+Por exemplo, aqui está uma função que calcula o fatorial de um número:<br><br>
+def fatorial(n):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if n == 0:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return n * fatorial(n-1)<br>
+
+fatorial_de_5 = fatorial(5)<br>
+print(fatorial_de_5) # exibe 120<br><br>
+outros exemplos:<br>
+
+def minha_funcao(parametro1, parametro2):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# código da função<br>
+&nbsp;&nbsp;&nbsp;&nbsp;resultado = parametro1 + parametro2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return resultado<br><br>
+resultado = minha_funcao(1, 2)<br>
+print(resultado) # exibe 3<br>
+
+Em Python, é possível definir um valor padrão para um ou mais dos parâmetros de uma função. Isso significa que, se o argumento correspondente não for fornecido quando a função for chamada, o valor padrão será usado.<br><br>
+Para definir um valor padrão para um parâmetro, basta atribuir o valor desejado a ele na definição da função, como mostrado abaixo:<br><br>
+def minha_funcao(parametro1, parametro2=valor_padrao):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# código da função<br><br>
+
+Por exemplo, aqui está uma função que calcula o fatorial de um número, com um valor padrão de 1 para o parâmetro:<br><br>
+def fatorial(n=1):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;resultado = 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for i in range(1, n+1):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultado *= i<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return resultado<br><br>
+
+fatorial_de_5 = fatorial(5)<br>
+print(fatorial_de_5) # exibe 120<br><br>
+
+fatorial_de_1 = fatorial()<br>
+print(fatorial_de_1) # exibe 1<br><br>
+No exemplo acima, a função fatorial() tem um parâmetro opcional n, que tem um valor padrão de 1. Se você chamar a função sem passar nenhum argumento, o valor padrão será usado e o resultado será 1. Se você passar um argumento, o valor padrão será sobrescrito e o cálculo será realizado com o novo valor.<br><br>
+
+Retornando varios valores de uma função:<br><br>
+
+Para retornar vários valores de uma função, basta colocá-los separados por vírgulas, e então usar a palavra-chave return para retorná-los. Por exemplo:<br><br>
+def minha_funcao():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;valor1 = 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;valor2 = 2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;valor3 = 3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return valor1, valor2, valor3<br><br>
+
+resultado = minha_funcao()<br>
+print(resultado) # exibe (1, 2, 3)<br><br>
+
+No exemplo acima, a função <strong>minha_funcao()</strong> retorna três valores: <strong>valor1</strong>, <strong>valor2</strong> e <strong>valor3</strong>. Esses valores são retornados como uma tupla, que pode ser armazenada em uma variável ou usada diretamente.<br><br>
+Você também pode desempacotar a tupla retornada diretamente em várias variáveis, como mostrado abaixo:<br><br>
+valor1, valor2, valor3 = minha_funcao()<br>
+print(valor1) # exibe 1<br>
+print(valor2) # exibe 2<br>
+print(valor3) # exibe 3<br><br>
+
+<strong>Decoradores:</strong><br><br>
+Os decoradores são uma forma de aplicar modificações a funções existentes de forma transparente, sem precisar modificar o código da função original. Eles são usados para adicionar funcionalidades adicionais às funções, como registrar informações de depuração, medir o tempo de execução, validar entradas, etc.<br><br>
+Para criar um decorador, você precisa definir uma função que recebe uma outra função como argumento e retorna uma nova função que envolve a função original. A sintaxe para criar um decorador é:<br><br>
+
+def decorador(funcao):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def wrapper(*args, **kwargs):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# código adicional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultado = funcao(*args, **kwargs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# mais código adicional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return resultado<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return wrapper<br><br>
+
+O decorador acima tem uma função interna chamada wrapper, que é responsável por realizar as modificações na função original. A função wrapper pode ser personalizada para adicionar qualquer tipo de funcionalidade adicional que você desejar.<br><br>
+Para usar o decorador, basta colocar o símbolo <strong>@</strong> seguido pelo nome do decorador acima da definição da função que deseja decorar. Por exemplo:<br><br>
+
+@decorador<br>
+def minha_funcao(parametro):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# código da função<br><br><br>
+
+Quando a função é chamada, o decorador é aplicado automaticamente e as modificações definidas na função wrapper são realizadas.<br><br>
+
+Aqui está um exemplo de decorador que mede o tempo de execução de uma função:<br><br>
+import time<br>
+
+def tempo_de_execucao(funcao):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def wrapper(*args, **kwargs):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inicio = time.time()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultado = funcao(*args, **kwargs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fim = time.time()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tempo = fim - inicio<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f'Tempo de execução: {tempo:.6f} segundos')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return resultado<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return wrapper<br><br>
+
+@tempo_de_execucao<br>
+def minha_funcao(parametro):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# código da função<br>
+
+minha_funcao(12345) # exibe o tempo de execução da função<br><br>
+
+Em Python, é possível passar argumentos para um decorador da mesma forma que passa argumentos para qualquer outra função. Para fazer isso, basta colocar os argumentos entre parênteses logo após o nome do decorador, quando o decorador é aplicado a uma função.<br><br>
+
+Por exemplo, aqui está um decorador que recebe um argumento <strong>nome</strong> e exibe esse nome junto com o resultado da função decorada:<br><br>
+
+def meu_decorador(nome):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def decorador(funcao):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def wrapper(*args, **kwargs):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultado = funcao(*args, **kwargs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f'{nome}: {resultado}')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return resultado<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return wrapper<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return decorador<br><br>
+
+@meu_decorador('Resultado')<br>
+def minha_funcao(parametro):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# código da função<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return parametro * 2<br><br>
+
+minha_funcao(10) # exibe 'Resultado: 20'<br><br>
+</div>
+<div id="funcoesemetodos"><h2>Funções e métodos nativos do python</h2><br><br>
+
+
+<strong>Usando método find()</strong><br><br>
+
+O método <strong>find()</strong> é um método de string que procura por uma substring em uma string e retorna o índice em que a substring foi encontrada. Se a substring não for encontrada, o método retorna <strong>-1</strong>.<br><br>
+A sintaxe para usar o método <strong>find()</strong> é:<br><br>
+string.find(substring, start, end)<br><br>
+
+<ul>
+    <li><strong>substring</strong> é a substring que deseja procurar.</li>
+    <li><strong>start</strong> é o índice de início da busca (opcional).</li>
+    <li><strong>end</strong> é o índice de fim da busca (opcional).</li>
+</ul><br><br>
+
+Se você não especificar os índices de início e fim, o método irá procurar a substring em toda a string. Se você especificar apenas o índice de início, o método irá procurar a substring a partir do índice especificado até o final da string.<br><br>
+Aqui estão alguns exemplos de como usar o método <strong>find()</strong>:<br><br>
+texto = "O rato roeu a roupa do rei de Roma"<br><br>
+
+# procura a substring "rei" em toda a string<br>
+indice = texto.find("rei")<br>
+print(indice) # exibe 24<br>
+
+# procura a substring "Roma" a partir do índice 30<br>
+indice = texto.find("Roma", 30)<br>
+print(indice) # exibe 37<br>
+
+# procura a substring "raposa" em toda a string<br>
+indice = texto.find("raposa")<br>
+print(indice) # exibe -1<br><br><br>
+
+<strong>Usando len()</strong><br><br>
+O método len() é uma função built-in do Python que retorna o tamanho (ou comprimento) de um objeto. Por exemplo, se você passar uma string para a função len(), ela retornará o número de caracteres na string. Se você passar uma lista, ela retornará o número de elementos na lista.<br><br>
+
+A sintaxe para usar o método <strong>len()</strong> é:<br><br>
+len(objeto)<br><br>
+
+Onde objeto é o objeto cujo tamanho deseja verificar.<br><br>
+Aqui estão alguns exemplos de como usar o método <strong>len()</strong>:<br><br>
+
+# verifica o tamanho de uma string<br>
+texto = "O rato roeu a roupa do rei de Roma"<br>
+tamanho = len(texto)<br>
+print(tamanho) # exibe 37<br><br>
+
+# verifica o tamanho de uma lista<br>
+lista = [1, 2, 3, 4, 5]<br>
+tamanho = len(lista)<br>
+print(tamanho) # exibe 5<br>
+
+# verifica o tamanho de um dicionário<br>
+dicionario = {'chave1': 1, 'chave2': 2, 'chave3': 3}<br>
+tamanho = len(dicionario)<br>
+print(tamanho) # exibe 3<br><br>
+
+<strong>Usando split()</strong><br><br>
+
+O método split() é um método de string que divide uma string em uma lista de substrings, usando um delimitador especificado. O delimitador é um caractere ou sequência de caracteres que separa as substrings na string original.<br><br>
+A sintaxe para usar o método <strong>split()</strong> é:<br><br>
+string.split(delimitador, maxsplit)<br>
+
+<ul>
+    <li><strong>delimitador</strong> é o caractere ou sequência de caracteres que serve como delimitador. Se você não especificar um delimitador, o método usará o espaço em branco como delimitador.</li>
+    <li><strong>maxsplit</strong> é o número máximo de divisões a serem feitas (opcional). Se você não especificar um valor para <strong>maxsplit</strong>, todas as ocorrências do delimitador serão usadas.</li>
+</ul><br><br>
+
+Aqui estão alguns exemplos de como usar o método <strong>split()</strong>:<br><br>
+
+# divide uma string usando o espaço em branco como delimitador<br>
+texto = "O rato roeu a roupa do rei de Roma"<br>
+palavras = texto.split()<br>
+print(palavras) # exibe ['O', 'rato', 'roeu', 'a', 'roupa', 'do', 'rei', 'de', 'Roma']<br><br>
+
+# divide uma string usando vírgulas como delimitador<br>
+texto = "O rato,roeu,a roupa,do rei de Roma"<br>
+palavras = texto.split(',')<br>
+print(palavras) # exibe ['O rato', 'roeu', 'a roupa', 'do rei de Roma']<br><br>
+
+# divide uma string em duas partes, usando o primeiro espaço em branco como delimitador<br>
+texto = "O rato roeu a roupa do rei de Roma"<br>
+partes = texto.split(None, 1)<br>
+print(partes) # exibe ['O', 'rato roeu a roupa do rei de Roma']<br><br>
+
+# divide uma string usando vírgulas como delimitador, mas apenas as duas primeiras ocorrências<br>
+texto = "O rato,roeu,a roupa,do rei de Roma"<br>
+palavras = texto.split(',', 2)<br>
+print(palavras) # exibe ['O rato', 'roeu', 'a roupa,do rei de Roma']<br>
+
+</div>
+
 </body>
