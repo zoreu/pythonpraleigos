@@ -12,6 +12,7 @@
 <a href="#identacao">Identação</a><br>
 <a href="#avancado">Conceitos avançados</a><br>
 <a href="#funcoesemetodos">Funções e métodos nativos do python</a><br>
+<a href="#scrape">Web Scraping</a><br>
 <div id="Como-instalar-Python"><h2>Como instalar Python</h2><br>Para instalar o python e começar a desenvolver nessa linguagem de programação, acesse: <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a><br>
 Escolha a versão mais recente do Python (atualmente, a versão 3.10.0) e siga as instruções de instalação. É geralmente uma boa ideia aceitar as opções padrão durante a instalação.<br>
 
@@ -53,8 +54,8 @@ print(minha_lista[1:3])  # imprime [2, 3]<br>
 print(minha_lista[:2])   # imprime [1, 2]<br>
 print(minha_lista[2:])   # imprime [3, 4, 5]<br><br>
 
-<strong>Tuplas:</strong></font> Tuplas são muito semelhantes às listas, mas são imutáveis (ou seja, uma vez criadas, não podem ser modificadas). Elas são criadas usando parênteses () e os valores são separados por vírgulas. Por exemplo:<br>
-minha_tupla = (1, 2, 3, 4)<br>
+<strong>Tuplas:</strong></font> Tuplas são muito semelhantes às listas, mas são imutáveis (ou seja, uma vez criadas, não podem ser modificadas). Elas são criadas usando parênteses () e os valores são separados por vírgulas. Por exemplo:<br><br>
+minha_tupla = (1, 2, 3, 4)<br><br>
 Você pode acessar os elementos de uma tupla da mesma maneira que uma lista, usando seus índices e slices.<br><br>
 <strong>Dicionários:</strong></font> os dicionários são estruturas de dados que armazenam pares chave-valor. As chaves são únicas em um dicionário e os valores podem ser de qualquer tipo. Os dicionários são criados usando chaves {} e os pares chave-valor são separados por vírgulas. Por exemplo:<br><br>
 meu_dicionario = {'nome': 'João', 'idade': 30}<br><br>
@@ -397,6 +398,139 @@ def minha_funcao(parametro):<br>
 &nbsp;&nbsp;&nbsp;&nbsp;return parametro * 2<br><br>
 
 minha_funcao(10) # exibe 'Resultado: 20'<br><br>
+
+<strong>Orientação a objetos:</strong><br><br>
+O Python é uma linguagem de programação orientada a objetos, o que significa que ela permite a criação e uso de objetos para representar coisas do mundo real.<br><br>
+
+Em Python, um objeto é uma instância de uma classe. Uma classe é um modelo ou protótipo para criar objetos. Ela define os atributos e comportamentos que um objeto terá.<br><br>
+
+Para criar uma classe em Python, você deve usar a palavra-chave <strong>class</strong>, seguida pelo nome da classe e dois-pontos. Em seguida, você deve definir o método <strong>__init__()</strong>, que é o construtor da classe. Ele é chamado quando um objeto é criado e permite inicializar os atributos do objeto.<br><br>
+
+Aqui está um exemplo de como criar uma classe em Python:<br><br>
+
+class Pessoa:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, nome, idade):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.nome = nome<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.idade = idade<br><br><br>
+
+Para criar um objeto a partir da classe <strong>Pessoa</strong>, basta usar o nome da classe como uma função e passar os argumentos para o construtor <strong>__init__()</strong>:<br><br>
+
+pessoa1 = Pessoa("João", 30)<br>
+pessoa2 = Pessoa("Maria", 25)<br><br>
+
+Os atributos <strong>nome</strong> e <strong>idade</strong> podem ser acessados diretamente usando a notação de ponto:<br><br>
+
+print(pessoa1.nome) # exibe "João"<br>
+print(pessoa2.idade) # exibe 25<br><br>
+
+Além de atributos, uma classe também pode ter métodos, que são funções que operam sobre os atributos do objeto. Para criar um método, basta definir uma função dentro da classe, usando a palavra-chave <strong>>def</strong>.<br><br>
+
+Aqui está um exemplo de como adicionar um método à classe Pessoa:<br><br>
+
+class Pessoa:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, nome, idade):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.nome = nome<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.idade = idade<br><br>
+    
+&nbsp;&nbsp;&nbsp;&nbsp;def aniversario(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.idade += 1<br><br>
+
+Para chamar um método de um objeto, basta usar a notação de ponto e passar qualquer argumento necessário:<br><br>
+
+pessoa1.aniversario()<br>
+print(pessoa1.idade) # exibe 31<br><br>
+
+<strong>Passando argumentos para o método da classe:</strong><br><br>
+
+Para passar argumentos para um método de um objeto em Python, basta chamar o método com a notação de ponto e passar os argumentos entre parênteses, da mesma forma que faria com uma função normal.<br><br>
+
+Por exemplo, suponha que você tenha a seguinte classe <strong>Pessoa</strong>:<br><br>
+
+class Pessoa:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, nome, idade):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.nome = nome<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.idade = idade<br><br>
+    
+&nbsp;&nbsp;&nbsp;&nbsp;def cumprimentar(self, nome_pessoa):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"Olá, {nome_pessoa}, meu nome é {self.nome}")<br><br>
+
+Para chamar o método <strong>cumprimentar()</strong> com um argumento, basta fazer:<br><br>
+
+pessoa1 = Pessoa("João", 30)<br>
+pessoa1.cumprimentar("Maria") # exibe "Olá, Maria, meu nome é João"<br><br>
+
+O primeiro argumento passado para o método é sempre o próprio objeto, que é referenciado como <strong>self</strong>. Qualquer outro argumento é passado normalmente.<br><br>
+
+<strong>Retornando variaveis de um objeto</strong><br><br>
+
+Para retornar um atributo de um objeto em Python, basta acessá-lo diretamente usando a notação de ponto. Por exemplo:<br><br>
+
+class Pessoa:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, nome, idade):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.nome = nome<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.idade = idade<br><br>
+    
+&nbsp;&nbsp;&nbsp;&nbsp;def get_nome(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return self.nome<br><br>
+
+pessoa1 = Pessoa("João", 30)<br>
+nome = pessoa1.get_nome()<br>
+print(nome) # exibe "João"<br><br>
+
+<strong>Usando o decorador @classmethod</strong><br><br>
+
+O decorador <strong>@classmethod</strong> em Python é usado para definir um método da classe, ou seja, um método que é acessado diretamente a partir da classe, e não a partir de uma instância da classe (objeto).<br.<br>
+
+Um método da classe é chamado da mesma forma que um atributo da classe, usando a notação de ponto. Ele recebe como primeiro argumento a própria classe, que é referenciada como <strong>cls</strong>.<br><br>
+
+Por exemplo, suponha que você tenha a seguinte classe <strong>Pessoa</strong>:<br><br>
+
+class Pessoa:
+&nbsp;&nbsp;&nbsp;&nbsp;num_pessoas = 0
+    
+&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, nome):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.nome = nome<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pessoa.num_pessoas += 1<br><br>
+    
+&nbsp;&nbsp;&nbsp;&nbsp;@classmethod<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def get_num_pessoas(cls):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return cls.num_pessoas<br><br>
+A classe <strong>Pessoa</strong> possui um atributo da classe <strong>num_pessoas</strong>, que é inicializado com 0, e um método da classe <strong>get_num_pessoas()</strong>, que retorna o valor de <strong>num_pessoas</strong>.<br.<br>
+
+Para acessar o método da classe, basta usar a notação de ponto:<br><br>
+pessoa1 = Pessoa("João")<br>
+pessoa2 = Pessoa("Maria")<br>
+
+num_pessoas = Pessoa.get_num_pessoas()<br>
+print(num_pessoas) # exibe 2<br><br>
+
+No exemplo acima, o método <strong>get_num_pessoas()</strong> é chamado diretamente a partir da classe <strong>Pessoa</strong>, sem precisar de uma instância da classe (objeto). O primeiro argumento passado para o método é a própria classe, que é referenciada como <strong>cls</strong>.<br><br>
+
+<strong>Usando o decorador @staticmethod</strong><br><br>
+
+O decorador <strong>@staticmethod</strong> em Python é usado para definir um método estático, ou seja, um método que não recebe nenhum argumento especial, nem a classe nem o objeto.<br><br>
+
+Um método estático é chamado da mesma forma que um atributo da classe, usando a notação de ponto. Ele não recebe nenhum argumento especial e pode ser chamado tanto a partir da classe quanto a partir de uma instância da classe (objeto).<br><br>
+
+Por exemplo, suponha que você tenha a seguinte classe <strong>Pessoa</strong>:<br><br>
+
+class Pessoa:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@staticmethod<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def saludar():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Hola")<br><br>
+
+A classe <strong>Pessoa</strong> possui um método estático <strong>saludar()</strong>, que imprime "Hola".<br><br>
+
+Para chamar o método estático, basta usar a notação de ponto:<br><br>
+
+Pessoa.saludar() # exibe "Hola"<br><br>
+
+pessoa1 = Pessoa()<br>
+pessoa1.saludar() # exibe "Hola"<br><br>
+
+No exemplo acima, o método <strong>saludar()</strong> é chamado tanto diretamente a partir da classe <strong>Pessoa</strong>, quanto a partir de uma instância da classe (objeto). Como é um método estático, ele não recebe nenhum argumento especial.<br><br>
+
+
 </div>
 <div id="funcoesemetodos"><h2>Funções e métodos nativos do python</h2><br><br>
 
@@ -485,6 +619,480 @@ print(partes) # exibe ['O', 'rato roeu a roupa do rei de Roma']<br><br>
 texto = "O rato,roeu,a roupa,do rei de Roma"<br>
 palavras = texto.split(',', 2)<br>
 print(palavras) # exibe ['O rato', 'roeu', 'a roupa,do rei de Roma']<br>
+
+<strong>Codificando em UTF-8</strong><br><br>
+
+O Python possui o módulo codecs que fornece as funções <strong>encode()</strong> e <strong>decode()</strong> para codificar e decodificar strings em diferentes codificações de caracteres, como UTF-8, ASCII, etc.<br><br>
+
+A sintaxe para codificar uma string em UTF-8 é:<br><br>
+
+import codecs<br>
+string_codificada = string.encode('utf-8')<br><br>
+
+Onde <strong>string</strong> é a string que deseja codificar. A função <strong>encode()</strong> retornará a string codificada como um objeto bytes.<br><br>
+
+Para decodificar a string, basta usar a função decode() da seguinte forma:<br><br>
+
+import codecs<br>
+string_decodificada = string_codificada.decode('utf-8')<br><br>
+
+Onde <strong>string_codificada</strong> é o objeto bytes com a string codificada em UTF-8. A função <strong>decode()</strong> retornará a string decodificada como uma string normal.<br><br>
+
+Exemplo completo:<br><br>
+
+import codecs<br>
+# codifica a string em UTF-8<br>
+string = "O rato roeu a roupa do rei de Roma"<br>
+string_codificada = string.encode('utf-8')<br>
+print(string_codificada) # exibe b'O rato roeu a roupa do rei de Roma'<br><br>
+
+# decodifica a string<br>
+string_decodificada = string_codificada.decode('utf-8')<br>
+print(string_decodificada) # exibe 'O rato roeu a roupa do rei de Roma'<br><br>
+
+<strong>Codificando em Base64</strong><br><br>
+
+Base64 é um sistema de codificação de dados que permite representar qualquer conjunto de dados binários como uma sequência de caracteres. É amplamente usado para transmitir dados binários através de canais que só podem transmitir dados ASCII, como e-mails, mensagens de texto e outras formas de comunicação.<br><br>
+
+O Python possui o módulo <strong>base64</strong> que fornece as funções <strong>b64encode()</strong> e <strong>b64decode()</strong> para codificar e decodificar dados base64, respectivamente.<br><br>
+
+A sintaxe para codificar dados base64 é:<br><br>
+import base64<br>
+dados_codificados = base64.b64encode(dados)<br><br>
+
+Onde <strong>dados</strong> é o objeto bytes com os dados a serem codificados. A função <strong>b64encode()</strong> retornará os dados codificados como um objeto bytes.<br><br>
+
+Para decodificar os dados, basta usar a função b64decode() da seguinte forma:<br><br>
+import base64<br>
+dados_decodificados = base64.b64decode(dados_codificados)<br><br>
+
+Onde <strong>dados_codificados</strong> é o objeto bytes com os dados base64 codificados. A função <strong>b64decode()</strong> retornará os dados decodificados como um objeto bytes.<br><br>
+
+Aqui está um exemplo completo de como codificar e decodificar dados base64 em Python:<br><br>
+
+import codecs<br>
+import base64<br>
+# codifica os dados<br>
+dados = 'O rato roeu a roupa do rei de Roma'.encode('utf-8')<br>
+dados_codificados = base64.b64encode(dados).decode('utf-8')<br>
+print(dados_codificados) # exibe TyByYXRvIHJvZXUgYSByb3VwYSBkbyByZWkgZGUgUm9tYQ==<br><br>
+
+<strong>Codificando em Base32</strong><br><br>
+
+O Python possui o módulo <strong>base64</strong> que fornece as funções <strong>b32encode()</strong> e <strong>b32decode()</strong> para codificar e decodificar dados base32, respectivamente.<br><br>
+
+A sintaxe para codificar dados base32 é:<br><br>
+
+import base64<br>
+dados_codificados = base64.b32encode(dados)<br><br>
+
+Onde dados é o objeto bytes com os dados a serem codificados. A função <strong>b32encode()</strong> retornará os dados codificados como um objeto bytes.<br><br>
+
+Para decodificar os dados, basta usar a função b32decode() da seguinte forma:<br><br>
+
+import base64<br>
+
+dados_decodificados = base64.b32decode(dados_codificados)<br><br>
+
+Onde <strong>dados_codificados</strong> é o objeto bytes com os dados base32 codificados. A função <strong>b32decode()</strong> retornará os dados decodificados como um objeto bytes.<br><br>
+
+Aqui está um exemplo completo de como codificar e decodificar dados base32 em Python:<br><br>
+
+import codecs<br>
+import base64<br>
+
+# codifica os dados<br>
+dados = 'O rato roeu a roupa do rei de Roma'.encode('utf-8')<br>
+dados_codificados = base64.b32encode(dados).decode('utf-8')<br><br>
+
+# decodifica os dados<br>
+dados_decodificados = base64.b32decode(dados_codificados).decode('utf-8')<br>
+print(dados_decodificados) # exibe 'O rato roeu a roupa do rei de Roma'<br><br>
+
+<strong>Expressões regulares:</strong><br><br>
+
+As expressões regulares (ou regex) são um conjunto de caracteres que formam um padrão de busca em uma string. Elas são usadas para verificar se uma string possui o padrão especificado e podem ser usadas para substituir ou extrair partes de uma string.<br><br>
+
+O Python possui o módulo <strong>re</strong> (para "regular expression") que fornece diversas funções para trabalhar com expressões regulares.<br><br>
+
+import re<br><br>
+
+A função mais básica do módulo <strong>re</strong> é a <strong>search()</strong>, que verifica se uma string possui o padrão especificado. Ela retorna um objeto <strong>Match</strong> se o padrão for encontrado ou <strong>None</strong> se o padrão não for encontrado.<br.<br>
+
+A sintaxe para usar a função <strong>search()</strong> é:<br><br>
+
+resultado = re.search(padrao, string)<br><br>
+
+Onde <strong>padrao</strong> é a expressão regular a ser procurada e <strong>string</strong> é a string na qual a expressão regular será procurada.<br><br>
+
+Por exemplo, suponha que você queira verificar se a string "O rato roeu a roupa do rei de Roma" possui a palavra "roupa":<br><br>
+
+import re<br><br>
+
+string = "O rato roeu a roupa do rei de Roma"<br>
+padrao = "roupa"<br>
+resultado = re.search(padrao, string)<br><br>
+
+if resultado:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Padrão encontrado!")<br>
+else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Padrão não encontrado")<br><br>
+
+O código acima imprime "Padrão encontrado!", pois a string "roupa" foi encontrada na string de entrada.<br><br>
+
+Além da função <strong>search()</strong>, o módulo <strong>re</strong> possui diversas outras funções úteis para trabalhar com expressões regulares, como <strong>findall()</strong>, que encontra todas as ocorrências de um padrão em uma string; <strong>sub()</strong>, que substitui todas as ocorrências de um padrão em uma string; e <strong>split()</strong>, que divide uma string em uma lista de strings usando um padrão como delimitador.<br><br>
+
+<strong>Usando padrões no re</strong><br><br>
+
+Existem vários caracteres especiais que podem ser usados em expressões regulares para criar padrões mais complexos. Alguns exemplos de caracteres especiais comuns são:<br><br>
+
+<ul>
+<li>"." (ponto): significa "qualquer caractere", exceto uma nova linha. Por exemplo, o padrão "a.c" casaria com "abc", "a1c", "a#c", etc.</li>
+<li>"^" (circunflexo): significa "começo da linha". Por exemplo, o padrão "^O" casaria com "O rato roeu a roupa do rei de Roma", mas não com "E o rato roeu a roupa do rei de Roma".</li>
+<li>"$" (cifrão): significa "fim da linha". Por exemplo, o padrão "Roma$" casaria com "O rato roeu a roupa do rei de Roma", mas não com "O rato roeu a roupa do rei de Roma.".</li>
+<li>"*" (asterisco): significa "zero ou mais ocorrências"</li>
+<li>"+" (mais): significa "uma ou mais ocorrências". Por exemplo, o padrão "a+b" casaria com "ab", "aab", "aaab", etc., mas não com "b".</li>
+<li>"?" (interrogação): significa "zero ou uma ocorrência". Por exemplo, o padrão "a?b" casaria com "b" e "ab", mas não com "aab" ou "aaab".</li>
+<li>"^[a-z]+$" qualquer string que consista apenas em letras minúsculas e tenha pelo menos uma letra</li>
+<li>"^[0-9]+$" qualquer string que consista apenas em dígitos e tenha pelo menos um dígito.</li>
+<li>"^[!@#$%^&*()_+-=[]{}|;':",./<>?].$" casaria com qualquer string que contenha pelo menos um caractere especial</li>
+</ul><br><br>
+
+<strong>Exemplos com modulo re</strong><br><br>
+
+Por exemplo, o padrão "^[a-z]+$" casaria com qualquer string que consista apenas em letras minúsculas e tenha pelo menos uma letra. Por exemplo:<br><br>
+
+import re<br><br>
+
+padrao = "^[a-z]+$"<br><br>
+
+resultado = re.search(padrao, "abcdef")<br>
+print(resultado) # exibe <re.Match object; span=(0, 6), match='abcdef'><br><br>
+
+resultado = re.search(padrao, "ABCDEF")<br>
+print(resultado) # exibe None<br><br>
+
+resultado = re.search(padrao, "abc123")<br>
+print(resultado) # exibe None<br><br>
+
+No exemplo acima, o padrão "^[a-z]+$" casa com a string "abcdef", mas não com as strings "ABCDEF" ou "abc123".<br><br>
+
+Por exemplo, o padrão "^[0-9]+$" casaria com qualquer string que consista apenas em dígitos e tenha pelo menos um dígito. Por exemplo:<br><br>
+
+import re<br><br>
+
+padrao = "^[0-9]+$"<br><br>
+
+resultado = re.search(padrao, "12345")<br>
+print(resultado) # exibe <re.Match object; span=(0, 5), match='12345'><br>
+
+resultado = re.search(padrao, "ABCDEF")<br>
+print(resultado) # exibe None<br><br>
+
+resultado = re.search(padrao, "abc123")<br>
+print(resultado) # exibe None<br><br>
+
+No exemplo acima, o padrão "^[0-9]+$" casa com a string "12345", mas não com as strings "ABCDEF" ou "abc123".<br><br>
+
+Por exemplo, o padrão "^[!@#$%^&*()_+-=[]{}|;':",./<>?].+$" casaria com qualquer string que contenha pelo menos um caractere especial. Por exemplo:<br><br>
+
+import re<br><br>
+
+padrao = "^[!@#$%^&*()_+-=[]{}|;':",./<>?].+$"<br><br>
+
+resultado = re.search(padrao, "abc123!@#$")<br>
+print(resultado) # exibe <re.Match object; span=(0, 9), match='abc123!@#$'><br><br>
+
+resultado = re.search(padrao, "ABCDEF")<br>
+print(resultado) # exibe None<br><br>
+
+resultado = re.search(padrao, "abc123")<br>
+print(resultado) # exibe None<br><br>
+
+No exemplo acima, o padrão "^[!@#$%^&*()_+-=[]{}|;':",./<>?].+$" casa com a string "abc123!@#$", mas não com as strings "ABCDEF" ou "abc123".<br>
+
+<strong>usando findall() do re</strong><br><br>
+
+Para usar a função <strong>findall()</strong> do módulo <strong>re</strong>, basta chamá-la passando como argumentos a expressão regular a ser procurada e a string na qual a expressão regular será procurada. A função <strong>findall()</strong> retorna uma lista com todas as ocorrências encontradas.<br><br>
+
+Por exemplo, suponha que você queira encontrar todas as ocorrências de uma palavra que comece com "r" e tenha pelo menos um caractere depois na string "O rato roeu a roupa do rei de Roma":<br><br>
+
+import re<br><br>
+
+string = "O rato roeu a roupa do rei de Roma"<br>
+padrao = "r.+"<br>
+resultado = re.findall(padrao, string)<br>
+print(resultado) # exibe ['rato', 'roeu', 'roupa', 'rei', 'roma']<br><br>
+
+<strong>usando sub() do re</strong><br><br>
+Para usar a função <strong>sub()</strong> do módulo <strong>re</strong>, basta chamá-la passando como argumentos a expressão regular a ser procurada, a string de substituição e a string na qual a expressão regular será procurada. A função <strong>sub()</strong> retorna uma nova string com as ocorrências da expressão regular substituídas pela string de substituição.<br><br>
+
+Por exemplo, suponha que você queira substituir todas as ocorrências da palavra "roupa" por "calça" na string "O rato roeu a roupa do rei de Roma":<br><br>
+
+import re<br><br>
+
+string = "O rato roeu a roupa do rei de Roma"<br>
+padrao = "roupa"<br>
+substituicao = "calça"<br>
+resultado = re.sub(padrao, substituicao, string)<br>
+print(resultado) # exibe "O rato roeu a calça do rei de Roma"<br><br>
+
+No exemplo acima, a função <strong>sub()</strong> retorna a string "O rato roeu a calça do rei de Roma", pois todas as ocorrências da palavra "roupa" foram substituídas pela palavra "calça".<br><br>
+
+<strong>Usando o método replace()</strong><br><br>
+
+O método <strong>replace()</strong> é um método de strings que permite substituir uma ou mais ocorrências de uma substring por outra substring.<br><br>
+
+Para usar o método <strong>replace()</strong>, basta chamar o método na string em que você quer realizar a substituição, passando como argumentos a substring a ser substituída e a substring de substituição. O método <strong>replace()</strong> retorna uma nova string com as substituições realizadas.<br><br>
+
+Por exemplo, suponha que você queira substituir todas as ocorrências da palavra "roupa" por "calça" na string "O rato roeu a roupa do rei de Roma":<br><br>
+
+string = "O rato roeu a roupa do rei de Roma"<br>
+resultado = string.replace("roupa", "calça")<br>
+print(resultado) # exibe "O rato roeu a calça do rei de Roma"<br><br>
+
+No exemplo acima, o método <strong>replace()</strong> retorna a string "O rato roeu a calça do rei de Roma", pois todas as ocorrências da palavra "roupa" foram substituídas pela palavra "calça".<br><br>
+</ul>
+</div>
+<div id="imports"><h2>Imports</h2><br><br>
+Em Python, os imports permitem que você use módulos ou funções de outros arquivos em seu código.<br><br>
+Para importar um módulo ou função em Python, basta usar a palavra-chave <strong>import</strong> seguida do nome do módulo ou função. Por exemplo, para importar o módulo <strong>math</strong>, basta usar a seguinte instrução:<br><br>
+
+import math<br><br>
+
+Depois de importar o módulo, você pode usar qualquer função ou variável definida no módulo usando o nome do módulo como prefixo. Por exemplo, para usar a função <strong>sqrt()</strong> do módulo <strong>math</strong>, basta usar o seguinte código:<br><br>
+
+import math<br><br>
+
+x = math.sqrt(9)<br>
+print(x) # exibe 3.0<br><br>
+
+Além de importar módulos inteiros, também é possível importar apenas algumas funções ou variáveis de um módulo usando a sintaxe <strong>from nome_do_modulo import nome_da_funcao</strong>. <br>
+Por exemplo, para importar apenas a função <strong>sqrt()</strong> do módulo <strong>math</strong>, basta usar a seguinte instrução:<br><br>
+
+from math import sqrt<br><br>
+
+x = sqrt(9)<br>
+print(x) # exibe 3.0<br>
+
+<strong>Importando fora da pasta atual</strong><br><br>
+
+Para importar um módulo de uma pasta fora da pasta atual, basta usar o caminho relativo para a pasta contendo o módulo.<br><br>
+
+Por exemplo, suponha que você tenha a seguinte estrutura de pastas:<br><br>
+
+meu_projeto/<br>
+├── pasta1/<br>
+│&nbsp;&nbsp;├── arquivo1.py<br>
+├── pasta2/<br>
+│&nbsp;&nbsp;├── arquivo2.py<br><br>
+
+Se você estiver no arquivo arquivo1.py e quiser importar o módulo arquivo2.py, basta usar a seguinte instrução:<br><br>
+
+from ../pasta2 import arquivo2<br><br>
+</div>
+<div id="scrape"><h2>Web Scraping</h2><br><br>
+
+Web scraping é uma tecnica de raspagem de dados onde coleta os dados de uma requisição http no codigo python<br>
+para fazer web scraping (raspagem de dados) é nescessário o modulo requests e o beautifulsoup4<br><br>
+
+
+<strong>Usando o modulo requests</strong><br><br>
+
+instalação:<br><br>
+
+Para instalar o módulo requests no Python, você pode usar o gerenciador de pacotes <strong>pip</strong>. Abra o terminal ou o prompt de comando e execute o seguinte comando:<br><br>
+
+pip install requests<br><br>
+
+Uso:<br><br>
+
+na internet existe dois tipos de acesso o GET onde recebe apenas os dados de uma url e o POST onde envia dados de um formulario e recebe um retorno dos dados<br><br>
+
+requisição HTTP GET:<br><br>
+
+import requests<br><br>
+
+response = requests.get('https://www.example.com')<br><br>
+
+if response.status_code == 200:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(response.text)<br><br>
+
+Esse código faz uma requisição GET ao URL <strong>https://www.example.com</strong> e, se a resposta for bem-sucedida (código de status HTTP 200), imprime o conteúdo da página.<br>
+Aviso: o método text já decodifica a pagina se estiver em UTF-8<br><br>
+
+
+requisição HTTP POST:<br><br>
+
+Para fazer uma requisição HTTP POST com o módulo <strong>requests</strong>, basta chamar o método <strong>post()</strong> e passar o URL alvo e os dados que deseja enviar na requisição.<br><br>
+Aqui está um exemplo de como fazer isso:<br><br>
+
+import requests<br><br>
+
+url = 'https://www.example.com/login'<br><br>
+
+data = {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;    'username': 'myusername',<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;    'password': 'mypassword'<br>
+}<br><br>
+
+response = requests.post(url, data=data)<br><br>
+
+if response.status_code == 200:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print('Success')<br>
+else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print('Failed')<br><br>
+
+Isso enviará uma requisição POST para a URL <strong>https://www.example.com/login</strong> com os dados de login especificados no dicionário <strong>data</strong>.<br>
+Você também pode passar outros parâmetros para o método <strong>post()</strong>, como <strong>headers</strong>, <strong>cookies</strong> e <strong>params</strong>, para especificar cabeçalhos HTTP, cookies e parâmetros de consulta, respectivamente.<br><br>
+
+Além disso, o módulo <strong>requests</strong> suporta a envio de outros tipos de conteúdo, como arquivos, usando o argumento <strong>files</strong>. Por exemplo:<br><br>
+
+import requests<br><br>
+
+url = 'https://www.example.com/upload'<br><br>
+
+files = {'file': open('myfile.txt', 'rb')}<br><br>
+
+response = requests.post(url, files=files)<br><br>
+
+if response.status_code == 200:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print('Success')<br>
+else:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print('Failed')<br><br>
+
+Esse código envia uma requisição POST para a URL <strong>https://www.example.com/upload</strong> com o arquivo <strong>myfile.txt</strong> anexado.<br><br>
+
+<strong>Usando o modulo beautifulsoup4</strong><br><br>
+
+instalação:<br><br>
+
+Para instalar o módulo <strong>beautifulsoup4</strong> no Python, você pode usar o gerenciador de pacotes <strong>pip</strong>. Abra o terminal ou o prompt de comando e execute o seguinte comando:<br><br>
+
+pip install beautifulsoup4<br><br>
+
+Uso:<br><br>
+
+Para pegar o texto de um atributo em uma <strong>div</strong> usando a classe em Python, você pode usar o método <strong>find()</strong> do <strong>BeautifulSoup</strong> passando como argumento o nome da tag <strong>div</strong> e o atributo <strong>class</strong> com o valor da classe desejada. Em seguida, basta chamar o método text na tag encontrada para obter o texto contido nela.<br><br>
+
+Por exemplo, suponha que você tenha o seguinte HTML:<br><br>
+
+<pre><code>&lt;div class="minha-classe"&gt;Texto da div&lt;/div&gt;</code></pre><br>
+
+Para pegar o texto "Texto da div" da div usando a classe "minha-classe", basta usar o seguinte código:<br><br>
+
+from bs4 import BeautifulSoup<br><br>
+
+html = '&lt;div class="minha-classe">Texto da div&lt;/div&gt;'<br>
+soup = BeautifulSoup(html, 'html.parser')<br>
+div = soup.find('div', class_='minha-classe')<br>
+texto = div.text<br>
+print(texto) # exibe "Texto da div"<br><br>
+
+No exemplo acima, o método <strong>find()</strong> é usado para encontrar a <strong>div</strong> com a classe "minha-classe" e o método <strong>text</strong> é usado para obter o texto contido na div.<br><br>
+
+Por exemplo, suponha que você tenha o seguinte HTML:<br><br>
+<pre><code>&lt;div id="meu-id"&gt;Texto da div&lt;/div&gt;</code></pre><br>
+
+
+Para pegar o texto "Texto da div" da div usando o id "meu-id", basta usar o seguinte código:
+
+from bs4 import BeautifulSoup<br><br>
+
+html = '&lt;div id="meu-id"&gt;Texto da div&lt;/div&gt;'<br>
+soup = BeautifulSoup(html, 'html.parser')<br>
+div = soup.find('div', id='meu-id')<br>
+texto = div.text<br>
+print(texto) # exibe "Texto da div"<br><br>
+
+No exemplo acima, o método <strong>find()</strong> é usado para encontrar a <strong>div</strong> com o <strong>id</strong> "meu-id" e o método <strong>text</strong> é usado para obter o texto contido na <strong>div</strong>.<br><br>
+
+pegar o texto de uma classe que comece com uma determinada string em Python:<br><br>
+
+Por exemplo, suponha que você tenha o seguinte HTML:<br><br>
+
+&lt;div class="minha-classe-1"&gt;Texto da div 1&lt;/div&gt;<br>
+&lt;div class="minha-classe-2"&gt;Texto da div 2&lt;/div&gt;<br>
+&lt;div class="outra-classe"&gt;Texto da div 3&lt;/div&gt;<br><br>
+
+Para pegar o texto "Texto da div 1" e "Texto da div 2" das <strong>div</strong>'s com classes que começam com "minha-classe", basta usar o seguinte código:<br><br>
+
+from bs4 import BeautifulSoup<br><br>
+
+html = '&lt;div class="minha-classe-1"&gt;Texto da div 1&lt;/div&gt;&lt;div class="minha-classe-2"&gt;Texto da div 2&lt;/div&gt;&lt;div class="outra-classe"&gt;Texto da div 3&lt;/div&gt;'<br>
+soup = BeautifulSoup(html, 'html.parser')<br>
+divs = soup.find_all('div', class_=re.compile(r"^minha-classe"))<br>
+for div in divs:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(div.text)<br><br>
+
+Por exemplo, suponha que você tenha o seguinte HTML:<br><br>
+
+&lt;div id="meu-id-1"&gt;Texto da div 1&lt;/div&gt;<br>
+&lt;div id="meu-id-2"&gt;Texto da div 2&lt;/div&gt;<br>
+&lt;div id="outro-id"&gt;Texto da div 3&lt;/div&gt;<br>
+
+Para pegar o texto "Texto da div 1" e "Texto da div 2" das <strong>div</strong>'s com <strong>id</strong>'s que começam com "meu-id", basta usar o seguinte código:<br><br>
+
+from bs4 import BeautifulSoup<br><br>
+
+html = '&lt;div id="meu-id-1"&gt;Texto da div 1&lt;/div&gt;&lt;div id="meu-id-2"&lt;Texto da div 2&lt;/div&gt;&lt;div id="outro-id"&gt;Texto da div 3&lt;/div&gt;'<br>
+soup = BeautifulSoup(html, 'html.parser')<br>
+divs = soup.find_all('div', id=re.compile(r"^meu-id"))<br>
+for div in divs:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(div.text)<br><br>
+
+<strong>atributo diferente de id e class</strong>:<br><br>
+
+Por exemplo, suponha que você tenha o seguinte HTML:<br><br>
+
+&lt;div data-texto="texto-1"&gt;Texto da div 1&lt;/div&gt;<br>
+&lt;div data-texto="texto-2"&gt;Texto da div 2&lt;/div&gt;<br>
+&lt;div data-texto="texto-3"&gt;Texto da div 3&lt;/div&gt;<br><br>
+
+Para pegar o texto de todas as divs com o atributo <strong>data-texto</strong>, basta usar o seguinte código:<br><br>
+
+from bs4 import BeautifulSoup<br><br>
+
+html = '&lt;div data-texto="texto-1"&gt;Texto da div 1&lt;/div&gt;&lt;div data-texto="texto-2"&gt;Texto da div 2&lt;/div&gt;&lt;div data-texto="texto-3"&gt;Texto da div 3&lt;/div&gt;'<br>
+soup = BeautifulSoup(html, 'html.parser')<br>
+divs = soup.find_all('div', attrs={"data-texto": True})<br>
+for div in divs:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(div.text)<br><br>
+
+<strong>pegar o texto de uma div que tenha o atributo data-texto com uma string específica:</strong><br><br>
+
+Por exemplo, suponha que você tenha o seguinte HTML:<br><br>
+
+&lt;div data-texto="texto-1"&gt;Texto da div 1&lt;/div&gt;<br>
+&lt;div data-texto="texto-2"&gt;Texto da div 2&lt;/div&gt;<br>
+&lt;div data-texto="texto-3"&gt;Texto da div 3&lt;/div&gt;<br>
+
+Para pegar o texto da <strong>div</strong> com o atributo <strong>data-texto</strong> igual a "texto-2", basta usar o seguinte código:<br><br>
+
+from bs4 import BeautifulSoup<br><br>
+
+html = '&lt;div data-texto="texto-1"&gt;Texto da div 1&lt;/div&gt;&lt;div data-texto="texto-2"&gt;Texto da div 2&lt;/div&gt;&lt;div data-texto="texto-3"&gt;Texto da div 3&lt;/div&gt;'<br>
+soup = BeautifulSoup(html, 'html.parser')<br>
+div = soup.find('div', attrs={"data-texto": "texto-2"})<br>
+print(div.text)<br><br><br>
+
+<strong>obter o valor de um atributo de uma tag HTML</strong><br><br>
+
+Por exemplo, suponha que você tenha o seguinte HTML:<br><br>
+
+&lt;div data-texto="texto-1"&gt;Texto da div 1&lt;/div&gt;<br>
+&lt;div data-texto="texto-2"&gt;Texto da div 2&lt;/div&gt;<br>
+&lt;div data-texto="texto-3"&gt;Texto da div 3&lt;/div&gt;<br><br>
+
+Para obter o valor do atributo <strong>data-texto</strong> da primeira <strong>div</strong>, basta usar o seguinte código:<br><br>
+
+from bs4 import BeautifulSoup<br><br>
+
+html = '&lt;div data-texto="texto-1"&gt;Texto da div 1&lt;/div&gt;&lt;div data-texto="texto-2"&gt;Texto da div 2&lt;/div&gt;&lt;div data-texto="texto-3"&gt;Texto da div 3&lt;/div&gt;'<br>
+soup = BeautifulSoup(html, 'html.parser')<br>
+div = soup.find('div')<br>
+valor_atributo = div.get('data-texto')<br>
+print(valor_atributo)  # imprime "texto-1"<br><br>
 
 </div>
 
