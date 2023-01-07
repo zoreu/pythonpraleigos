@@ -767,7 +767,7 @@ import re<br><br>
 padrao = "^[a-z]+$"<br><br>
 
 resultado = re.search(padrao, "abcdef")<br>
-print(resultado) # exibe <re.Match object; span=(0, 6), match='abcdef'><br><br>
+print(resultado) # exibe &lt;re.Match object; span=(0, 6), match='abcdef'&gt;<br><br>
 
 resultado = re.search(padrao, "ABCDEF")<br>
 print(resultado) # exibe None<br><br>
@@ -784,7 +784,7 @@ import re<br><br>
 padrao = "^[0-9]+$"<br><br>
 
 resultado = re.search(padrao, "12345")<br>
-print(resultado) # exibe <re.Match object; span=(0, 5), match='12345'><br>
+print(resultado) # exibe &lt;re.Match object; span=(0, 5), match='12345'&gt;<br>
 
 resultado = re.search(padrao, "ABCDEF")<br>
 print(resultado) # exibe None<br><br>
@@ -801,7 +801,7 @@ import re<br><br>
 padrao = "^[!@#$%^&*()_+-=[]{}|;':",./<>?].+$"<br><br>
 
 resultado = re.search(padrao, "abc123!@#$")<br>
-print(resultado) # exibe <re.Match object; span=(0, 9), match='abc123!@#$'><br><br>
+print(resultado) # exibe &lt;re.Match object; span=(0, 9), match='abc123!@#$'&gt;<br><br>
 
 resultado = re.search(padrao, "ABCDEF")<br>
 print(resultado) # exibe None<br><br>
